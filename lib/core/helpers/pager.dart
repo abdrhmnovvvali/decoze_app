@@ -1,0 +1,3 @@
+class Pager {
+  Pager._();
+}

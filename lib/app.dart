@@ -1,0 +1,20 @@
+import 'package:decoze_app/core/constants/app_constants.dart';
+import 'package:flutter/material.dart';
+
+import 'core/constants/app_colors.dart';
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'DecozeApp',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        scaffoldBackgroundColor: AppColors.gunMetal,
+        fontFamily: AppConstants.appFontFamily,
+      ),
+    );
+  }
+}
