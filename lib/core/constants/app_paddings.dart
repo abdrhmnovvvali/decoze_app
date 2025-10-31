@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AppPaddings {
+  
   AppPaddings._();
 
   //Only

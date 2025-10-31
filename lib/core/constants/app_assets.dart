@@ -1,16 +1,18 @@
 class AppAssets {
   AppAssets._();
 
-  static const String _svgIcons = 'assets/icons';
-  static const String _pngImg = 'assets/imgs/png';
-  //static const String _svgImg = 'assets/imgs/svg';
+  static const String _svgImage = 'assets/images/svg';
+  static const String _pngImage = 'assets/images/png';
+  static const String _icons = 'assets/icons';
+  static const String _jsons = 'assets/json';
 
-  //Icons
-  static const String arrowBack = '$_svgIcons/arrowLeft.svg';
-  static const String isSecure = '$_svgIcons/isSecure.svg';
-  static const String penFrame = '$_svgIcons/penFrame.svg';
-  static const String calendar = '$_svgIcons/calendar.svg';
-
-  //Images
-  static const String customPhoto = '$_pngImg/customPhoto.png';
+  // Icons
+  static const String apple = '$_icons/apple.svg';
+  static const String email = '$_icons/email.svg';
+  static const String show = '$_icons/show.svg';
+  static const String facebook = '$_icons/facebook.svg';
+  static const String hide = '$_icons/hide.svg';
+  static const String google = '$_icons/google.svg';
+  static const String lock = '$_icons/lock.svg';
+  static const String check = '$_icons/check.svg';
 }

@@ -1,6 +1,8 @@
+import 'package:decoze_app/core/constants/app_constants.dart';
 import 'package:flutter/material.dart';
 
 import 'app_colors.dart';
+import 'app_constants.dart';
 
 class AppTextStyles {
   AppTextStyles._();
@@ -8,7 +10,8 @@ class AppTextStyles {
   static const buttonSemibold600 = TextStyle(
     fontSize: 40,
     fontWeight: FontWeight.w700,
-    color: AppColors.white,
+    color: AppColors.steam,
+    fontFamily: AppConstants.appFontFamily,
   );
 
   static const alertSemibold600 = TextStyle(
