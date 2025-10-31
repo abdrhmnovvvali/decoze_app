@@ -38,6 +38,7 @@ dependencies:
   flutter_svg: ^2.2.1
   image_picker: ^1.2.0
   file_picker: ^10.3.3
+  intl: ^0.20.2
 
 dev_dependencies:
   flutter_test:
@@ -86,7 +87,7 @@ flutter:
           weight: 100
         - asset: assets/fonts/Inter_18pt-ThinItalic.ttf
           style: italic
-        - asset: assets.fonts/Inter_18pt-ExtraLight.ttf
+        - asset: assets/fonts/Inter_18pt-ExtraLight.ttf
           weight: 200
         - asset: assets/fonts/Inter_18pt-Light.ttf
           weight: 300
