@@ -63,10 +63,8 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/icons/
-    - assets/imgs/svg/
-    - assets/imgs/png/
     - assets/fonts/
-    - assets/jsons/
+   
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
@@ -82,11 +80,13 @@ flutter:
   fonts:
     - family: Inter
       fonts:
+
+
         - asset: assets/fonts/Inter_18pt-Thin.ttf
           weight: 100
         - asset: assets/fonts/Inter_18pt-ThinItalic.ttf
           style: italic
-        - asset: assets.fonts/Inter_18pt-ExtraLight.ttf
+        - asset: assets/fonts/Inter_18pt-ExtraLight.ttf
           weight: 200
         - asset: assets/fonts/Inter_18pt-Light.ttf
           weight: 300

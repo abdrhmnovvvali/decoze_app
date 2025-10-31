@@ -20,7 +20,6 @@ class CustomButton extends StatelessWidget {
         backgroundColor: AppColors.goldenFizz,
         shape: RoundedRectangleBorder(borderRadius: AppRadiuses.a100),
       ),
-
       child: Text(buttonTitle, style: AppTextStyles.buttonSemibold),
     );
   }
