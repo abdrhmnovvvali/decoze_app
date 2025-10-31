@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
       title: 'DecozeApp',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        scaffoldBackgroundColor: AppColors.gunMetal,
+        scaffoldBackgroundColor: AppColors.ebony,
         fontFamily: AppConstants.appFontFamily,
       ),
     );

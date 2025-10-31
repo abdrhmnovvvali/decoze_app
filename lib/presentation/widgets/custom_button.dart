@@ -1,27 +1,33 @@
 import 'package:flutter/material.dart';
 
-import '../../core/constants/app_colors.dart';
-import '../../core/constants/app_radiuses.dart';
-import '../../core/constants/app_text_styles.dart';
+import '../../core/constants/app_button_styles.dart';
+
 
 class CustomButton extends StatelessWidget {
   const CustomButton({
     super.key,
-    required this.buttonTitle,
-    required this.onPressed,
+    this.onPressed,
+    required this.text,
+    this.style,
+    this.enabled = true,
+    this.textStyle,
   });
-  final String buttonTitle;
-  final void Function() onPressed;
+
+  final VoidCallback? onPressed;
+  final String text;
+  final ButtonStyle? style;
+  final bool enabled;
+  final TextStyle? textStyle;
+
   @override
   Widget build(BuildContext context) {
+    final buttonStyle = enabled
+        ? AppButtonStyles.primaryButtonStyle
+        : AppButtonStyles.disablePrimaryButtonStyle;
     return ElevatedButton(
-      onPressed: onPressed,
-      style: ElevatedButton.styleFrom(
-        backgroundColor: AppColors.goldenFizz,
-        shape: RoundedRectangleBorder(borderRadius: AppRadiuses.a100),
-      ),
-
-      child: Text(buttonTitle, style: AppTextStyles.buttonSemibold),
+      style: style ?? buttonStyle,
+      onPressed: enabled ? onPressed : null,
+      child: Text(text, style: textStyle,),
     );
   }
 }
