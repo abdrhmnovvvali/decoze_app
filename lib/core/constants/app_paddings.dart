@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
 class AppPaddings {
+  
   AppPaddings._();
 
   static const zero = EdgeInsets.zero;
