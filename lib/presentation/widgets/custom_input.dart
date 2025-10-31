@@ -1,4 +1,3 @@
-import 'package:decoze_app/core/extensions/color_filter_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -6,14 +5,13 @@ import 'package:intl/intl.dart';
 
 import '../../core/constants/app_assets.dart';
 import '../../core/constants/app_colors.dart';
-import '../../core/constants/app_constants.dart';
 import '../../core/constants/app_paddings.dart';
 import '../../core/constants/app_radiuses.dart';
 import '../../core/constants/app_text_styles.dart';
-
+import '../../core/extensions/color_filter_extension.dart';
 
 class CustomInput extends StatefulWidget {
-  const CustomInput({
+  CustomInput({
     super.key,
     required this.controller,
     required this.focusNode,
@@ -26,9 +24,11 @@ class CustomInput extends StatefulWidget {
     this.prefix,
     this.inputFormatters,
     this.keyboardType,
-    this.fillColor = AppColors.ebony,
-    this.textStyle = AppTextStyles.semiBold600,
+    this.fillColor = AppColors.transparent,
+    this.textStyle = AppTextStyles.alertSemibold600,
     this.cursorColor = AppColors.white,
+    this.isFocus = false,
+    this.onTap,
   });
 
   final TextEditingController? controller;
@@ -45,6 +45,8 @@ class CustomInput extends StatefulWidget {
   final Color? fillColor;
   final TextStyle textStyle;
   final Color? cursorColor;
+  final VoidCallback? onTap;
+  bool isFocus;
 
   @override
   State<CustomInput> createState() => _CustomInputState();
@@ -52,7 +54,13 @@ class CustomInput extends StatefulWidget {
 
 class _CustomInputState extends State<CustomInput> {
   bool _isSecure = true;
-  bool _isFocus = false;
+
+  InputBorder inputBorders() {
+    return OutlineInputBorder(
+      borderRadius: AppRadiuses.a100,
+      borderSide: const BorderSide(color: AppColors.carbonGrey, width: 1),
+    );
+  }
 
   @override
   void initState() {
@@ -63,13 +71,13 @@ class _CustomInputState extends State<CustomInput> {
 
   void _controllerListener() {
     if (widget.focusNode!.hasFocus) return;
-    _isFocus = widget.controller!.text.isNotEmpty;
+    widget.isFocus = widget.controller!.text.isNotEmpty;
     setState(() {});
   }
 
   void _focusListener() {
     if (widget.controller!.text.isNotEmpty) return;
-    _isFocus = widget.focusNode!.hasFocus;
+    widget.isFocus = widget.focusNode!.hasFocus;
     setState(() {});
   }
 
@@ -88,47 +96,47 @@ class _CustomInputState extends State<CustomInput> {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: AppRadiuses.a10,
+      borderRadius: AppRadiuses.a100,
       child: TextFormField(
         controller: widget.controller,
         focusNode: widget.focusNode,
         obscureText: _isSecure ? widget.isSecure : false,
         obscuringCharacter: '*',
         style: widget.textStyle,
-        cursorHeight: 20,
+        cursorHeight: 16,
         cursorColor: widget.cursorColor,
         onChanged: widget.onChanged,
         readOnly: widget.readOnly,
         inputFormatters: widget.inputFormatters,
         keyboardType: widget.keyboardType,
-        onTap: widget.readOnly ? () => _selectDate(context) : null,
+        onTap: () {
+          //FocusScope.of(context).unfocus();
+          if (widget.onTap != null) {
+            widget.onTap!();
+          } else if (widget.readOnly) {
+            _selectDate(context);
+          }
+        },
         decoration: InputDecoration(
-       border:const  OutlineInputBorder(
-    borderRadius: AppRadiuses.a100,
-    borderSide: BorderSide(color: AppColors.millionGrey, width: 1),
-  ),
-  enabledBorder:const OutlineInputBorder(
-    borderRadius: AppRadiuses.a100,
-    borderSide: BorderSide(color: AppColors.millionGrey, width: 1),
-  ),
-  focusedBorder: const OutlineInputBorder(
-    borderRadius: AppRadiuses.a100,
-    borderSide:  BorderSide(color:  AppColors.millionGrey, width: 1),
-  ),
+          border: inputBorders(),
+          enabledBorder: inputBorders(),
+          focusedBorder: inputBorders().copyWith(
+            borderSide: BorderSide(color: AppColors.boulder),
+          ),
           fillColor: widget.fillColor,
           filled: true,
           hintText: widget.hintText,
-          hintStyle: AppTextStyles.semiBold600,
+          hintStyle: AppTextStyles.alertSemibold600,
           prefixIcon:
               widget.prefix ??
               (widget.prefixSvg != null
                   ? Padding(
-                      padding: AppPaddings.l20 + AppPaddings.r10,
+                      padding: AppPaddings.l16 + AppPaddings.r10,
                       child: SvgPicture.asset(
                         widget.prefixSvg!,
-                        colorFilter: _isFocus
-                            ? AppColors.mercury.toColorFilter
-                            : AppColors.mercury.toColorFilter,
+                        colorFilter: widget.isFocus
+                            ? AppColors.white.toColorFilter
+                            : AppColors.white.toColorFilter,
                       ),
                     )
                   : null),
@@ -136,20 +144,22 @@ class _CustomInputState extends State<CustomInput> {
               ? InkWell(
                   onTap: widget.isSecure ? _toggleSecureIcon : null,
                   child: Padding(
-                    padding: AppPaddings.r20,
+                    padding: AppPaddings.r16,
                     child: SvgPicture.asset(
-                      _isSecure ? widget.suffixSvg! : AppAssets.show,
-                      height: AppConstants.inputIconsBoxConstraints.minHeight,
-                      width: AppConstants.inputIconsBoxConstraints.minWidth,
-                      colorFilter: _isFocus
-                          ? AppColors.mercury.toColorFilter
-                          : AppColors.mercury.toColorFilter,
+                      _isSecure ? widget.suffixSvg! : AppAssets.isSecure,
+                      width: 18,
+                      height: 18,
+                      //height: AppConstants.inputIconsBoxConstraints.minHeight,
+                      //width: AppConstants.inputIconsBoxConstraints.minWidth,
+                      colorFilter: widget.isFocus
+                          ? AppColors.white.toColorFilter
+                          : AppColors.white.toColorFilter,
                     ),
                   ),
                 )
               : null,
-          suffixIconConstraints: AppConstants.inputIconsBoxConstraints,
-          contentPadding: AppPaddings.h20 + AppPaddings.v16, // Change this
+          //suffixIconConstraints: AppConstants.inputIconsBoxConstraints,
+          //contentPadding: AppPaddings.h20 + AppPaddings.v16,
         ),
       ),
     );

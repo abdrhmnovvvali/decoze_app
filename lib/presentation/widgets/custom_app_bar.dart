@@ -1,11 +1,10 @@
-import 'package:decoze_app/core/extensions/widget_state_property_all_extensions.dart';
+import 'package:decoze_app/core/extensions/widget_state_all_extension.dart';
+import 'package:flutter/material.dart';
 
 import '../../core/constants/app_colors.dart';
 import '../../core/constants/app_paddings.dart';
 import '../../core/constants/app_text_styles.dart';
 import '../../core/helpers/go.dart';
-
-import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({
@@ -28,12 +27,13 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: AppColors.ebony,
-      foregroundColor: AppColors.ebony,
-      surfaceTintColor: AppColors.transparent, //bax
+      backgroundColor: AppColors.gunMetal,
+      foregroundColor: AppColors.white,
+      surfaceTintColor: AppColors.transparent,
       automaticallyImplyLeading: false,
       leadingWidth: 68,
       titleSpacing: showLeading ? 0 : 24,
+      centerTitle: true,
       actions: actions,
       leading: showLeading
           ? InkWell(
@@ -52,7 +52,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                       leadingIcon ??
                       const Icon(
                         Icons.arrow_back,
-                        color: AppColors.white,
+                        color: AppColors.dawnPink,
                         size: 28,
                       ),
                 ),
@@ -60,7 +60,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             )
           : null,
 
-      title: title != null ? Text(title!, style: AppTextStyles.bold700) : null,
+      title: title != null ? Text(title!, style: AppTextStyles.h2Bold) : null,
     );
   }
 

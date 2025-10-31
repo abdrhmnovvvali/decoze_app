@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../core/constants/app_button_styles.dart';
 
-
 class CustomButton extends StatelessWidget {
   const CustomButton({
     super.key,
@@ -24,10 +23,14 @@ class CustomButton extends StatelessWidget {
     final buttonStyle = enabled
         ? AppButtonStyles.primaryButtonStyle
         : AppButtonStyles.disablePrimaryButtonStyle;
-    return ElevatedButton(
-      style: style ?? buttonStyle,
-      onPressed: enabled ? onPressed : null,
-      child: Text(text, style: textStyle,),
+    return SizedBox(
+      height: 56,
+      width: double.infinity,
+      child: ElevatedButton(
+        style: style ?? buttonStyle,
+        onPressed: enabled ? onPressed : null,
+        child: Text(text, style: textStyle),
+      ),
     );
   }
 }
