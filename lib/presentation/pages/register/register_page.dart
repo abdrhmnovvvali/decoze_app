@@ -46,7 +46,7 @@ class _RegisterPageState extends State<RegisterPage> {
       appBar: const CustomAppBar(),
       body: SingleChildScrollView(
         child: Padding(
-          padding: AppPaddings.h25,
+          padding: AppPaddings.h24,
           child: Column(
             children: [
               52.h,

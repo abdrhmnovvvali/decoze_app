@@ -1,11 +1,10 @@
-import 'package:decoze_app/core/extensions/widget_state_property_all_extensions.dart';
-
-
+import 'package:decoze_app/core/constants/app_colors.dart';
+import 'package:decoze_app/core/constants/app_radiuses.dart';
+import 'package:decoze_app/core/extensions/widget_state_all_extension.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
-import '../../core/constants/app_colors.dart';
-import '../../core/constants/app_radiuses.dart';
+
+import 'package:flutter_svg/svg.dart';
 
 
 class SocialIconButton extends StatelessWidget {
