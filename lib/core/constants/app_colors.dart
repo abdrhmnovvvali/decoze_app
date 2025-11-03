@@ -15,4 +15,9 @@ class AppColors {
   static const Color vanillaDrop = Color(0xffFDFFEC);
   static const Color ebony = Color(0xff313437);
   static const Color millionGrey = Color(0xff999999);
+  static const Color luckyGrey = Color(0xff757779);
+  static const Color artistCharcoal = Color(0xff353B40);
+  static const Color tex = Color(0xffBFC0C1);
+   static const Color lemon = Color(0xffEEFF69);
+   static const Color text2 = Color(0xffA0A2A3);
 }

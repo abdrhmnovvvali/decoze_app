@@ -27,7 +27,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: AppColors.gunMetal,
+      backgroundColor: AppColors.ebony,
       foregroundColor: AppColors.white,
       surfaceTintColor: AppColors.transparent,
       automaticallyImplyLeading: false,
@@ -52,7 +52,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                       leadingIcon ??
                       const Icon(
                         Icons.arrow_back,
-                        color: AppColors.dawnPink,
+                        color: AppColors.white,
                         size: 28,
                       ),
                 ),

@@ -15,7 +15,7 @@ class AppButtonStyles {
     backgroundColor: AppColors.primary.toWspAll,
     foregroundColor: AppColors.ebony.toWspAll,
     minimumSize: const Size(double.infinity, 56).toWspAll,
-    textStyle: AppTextStyles.semiBold600x.toWspAll,
+    textStyle: AppTextStyles.alertSemibold600.toWspAll,
   );
 
   static final disablePrimaryButtonStyle = primaryButtonStyle.copyWith(
@@ -27,7 +27,7 @@ class AppButtonStyles {
       borderRadius: AppRadiuses.a100,
     ).toWspAll,
     foregroundColor: AppColors.primary.toWspAll,
-    textStyle: AppTextStyles.semiBold600x
+    textStyle: AppTextStyles.alertSemibold600
         .copyWith(color: AppColors.primary)
         .toWspAll,
   );
