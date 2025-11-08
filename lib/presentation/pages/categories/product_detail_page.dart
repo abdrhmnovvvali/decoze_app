@@ -1,14 +1,17 @@
-import '../../../../core/constants/app_assets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import '../../../../core/constants/app_colors.dart';
-import '../../../../core/extensions/sized_box_extension.dart';
-import '../../../../data/model/product_model.dart';
-import '../../../widgets/custom_app_bar.dart';
-import '../../../widgets/custom_button.dart';
+
+import '../../../core/constants/app_assets.dart';
+import '../../../core/constants/app_colors.dart';
+import '../../../core/extensions/sized_box_extension.dart';
+import '../../../cubits/cart/cart_cubit.dart';
+import '../../../data/model/product_model.dart';
+import '../../widgets/custom_app_bar.dart';
+import '../../widgets/custom_button.dart';
 
 class ProductDetailPage extends StatefulWidget {
-  final Product product;
+  final ProductModel product;
 
   const ProductDetailPage({super.key, required this.product});
 
@@ -21,7 +24,11 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.ebony,
-      appBar: CustomAppBar(title: widget.product.title),
+      appBar: CustomAppBar(
+        title: widget.product.title,
+        showCartIcon: true,
+       
+      ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
         child: Column(
@@ -137,7 +144,20 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
 
             140.h,
 
-            CustomButton(text: "Add to Cart", onPressed: () {}),
+           CustomButton(
+  text: "Add to Cart",
+  onPressed: () {
+    context.read<CartCubit>().addToCart(widget.product);
+    // ScaffoldMessenger.of(context).showSnackBar(
+      // SnackBar(
+      //   content: Text('${widget.product.title} added to cart'),
+      //   backgroundColor: Colors.green,
+      // ),
+    // );
+  },
+),
+
+
           ],
         ),
       ),

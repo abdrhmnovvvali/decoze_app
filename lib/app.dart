@@ -4,7 +4,6 @@ import 'core/constants/app_colors.dart';
 import 'core/constants/app_constants.dart';
 import 'core/helpers/pager.dart';
 
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -17,8 +16,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: AppColors.primary,
         fontFamily: AppConstants.appFontFamily,
       ),
-      home: Pager.categories,
+      home:Pager.categories,
     );
   }
 }
-

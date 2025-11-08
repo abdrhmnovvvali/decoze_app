@@ -1,6 +1,6 @@
 
-import 'package:decoze_app/core/constants/app_assets.dart';
-import 'package:decoze_app/data/model/nav_item_model.dart';
+import '../../../../core/constants/app_assets.dart';
+import '../../../../data/model/nav_item_model.dart';
 
 class ProductNavItemData {
   static const List<NavItemModel> bottomNavItems = [

@@ -1,10 +1,9 @@
-import 'package:decoze_app/core/constants/app_colors.dart';
-import 'package:decoze_app/core/constants/app_radiuses.dart';
-import 'package:decoze_app/data/model/nav_item_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-
+import '../../core/constants/app_colors.dart';
+import '../../core/constants/app_radiuses.dart';
+import '../../data/model/nav_item_model.dart';
 
 class CustomBottomNavBar extends StatefulWidget {
   final List<NavItemModel> items;
