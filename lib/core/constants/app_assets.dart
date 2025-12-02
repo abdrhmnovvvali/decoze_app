@@ -22,8 +22,10 @@ class AppAssets {
   static const String shopping = '$_icons/shopping.svg';
   static const String star = '$_icons/star.svg';
   static const String category = '$_icons/category.svg';
+  static const String penFrame = '$_icons/penFrame.svg';
+  static const String arrowLeft = '$_icons/arrowLeft.svg';
+    static const String calendar = '$_icons/calendar.svg';
 
-
-// Image
+  // Image
   static const String photo = '$_pngImage/photo.png';
 }

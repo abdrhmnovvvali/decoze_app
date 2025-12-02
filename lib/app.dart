@@ -13,10 +13,10 @@ class MyApp extends StatelessWidget {
       title: 'DecozeApp',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        scaffoldBackgroundColor: AppColors.primary,
+        scaffoldBackgroundColor: AppColors.ebony,
         fontFamily: AppConstants.appFontFamily,
       ),
-      home:Pager.categories,
+      home: Pager.fillProfile,
     );
   }
 }
