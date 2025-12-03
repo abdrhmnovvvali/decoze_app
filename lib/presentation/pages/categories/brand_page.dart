@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/constants/app_colors.dart';
-import '../../../../core/extensions/sized_box_extension.dart';
-import '../../../../data/model/product_model.dart';
-import '../../../widgets/custom_app_bar.dart';
-import 'filter_button.dart';
-import 'product_card.dart';
+import '../../../core/constants/app_colors.dart';
+import '../../../core/extensions/sized_box_extension.dart';
+import '../../../data/model/product_model.dart';
+import '../../widgets/custom_app_bar.dart';
+import 'widgets/filter_button.dart';
+import 'widgets/product_card.dart';
 import 'product_detail_page.dart';
 
 class BrandPage extends StatefulWidget {
   final String categoryName;
-  final List<Product> categoryProducts;
+  final List<ProductModel> categoryProducts;
 
   const BrandPage({
     super.key,
@@ -78,8 +78,6 @@ class _BrandPageState extends State<BrandPage> {
             ),
 
             36.h,
-
-            // 🔹 Məhsul kartları
             Expanded(
               child: filteredProducts.isNotEmpty
                   ? SingleChildScrollView(

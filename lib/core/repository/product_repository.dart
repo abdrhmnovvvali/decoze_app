@@ -1,14 +1,14 @@
-import 'package:decoze_app/core/dio/api_services.dart';
-import 'package:decoze_app/data/model/product_model.dart';
+import '../../data/model/product_model.dart';
+import '../dio/api_services.dart';
 
 class ProductRepository {
   final ApiService api;
 
   ProductRepository(this.api);
 
-  Future<List<Product>> getProducts() async {
+  Future<List<ProductModel>> getProducts() async {
     final response = await api.getProducts();
     final List products = response.data['products'];
-    return products.map((e) => Product.fromJson(e)).toList();
+    return products.map((e) => ProductModel.fromJson(e)).toList();
   }
 }

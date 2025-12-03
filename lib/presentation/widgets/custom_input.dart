@@ -20,6 +20,7 @@ class CustomInput extends StatefulWidget {
     this.prefixSvg,
     this.suffixSvg,
     this.onChanged,
+    this.onTap,
     this.isSecure = false,
     this.readOnly = false,
     this.prefix,
@@ -44,6 +45,7 @@ class CustomInput extends StatefulWidget {
   final Color? fillColor;
   final TextStyle textStyle;
   final Color? cursorColor;
+  final VoidCallback? onTap;
 
   @override
   State<CustomInput> createState() => _CustomInputState();

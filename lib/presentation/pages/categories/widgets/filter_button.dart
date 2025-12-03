@@ -1,5 +1,6 @@
-import 'package:decoze_app/core/constants/app_colors.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../core/constants/app_colors.dart';
 
 class FilterButton extends StatelessWidget {
   final String label;
